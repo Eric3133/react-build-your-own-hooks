@@ -15,9 +15,18 @@ function useToggle() {
     toggle
   }
 }
+//React Hook "useState" cannot be called at the top level.
+//React Hooks must be called in a React function component or a custom React Hook function  react-hooks/rules-of-hooks
+
+
+//const [value, setValue] = useState(true) // error;
 
 function App() {
   const {value, toggle} = useToggle();
+
+  // if(Math.randon() > 0.5){  // error
+  //   const [value, setValue] = useState(true);
+  // }
 
   return (
     <div className="App">
