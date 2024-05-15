@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {useState} from 'react';
+// switch between true and false
+// build your own hooks
+
+function useToggle() {
+  const[value, setValue] = useState(true);
+  const toggle = () => {
+    setValue(!value);
+  }
+  // retuen state and function
+  return{
+    value,
+    toggle
+  }
+}
 
 function App() {
+  const {value, toggle} = useToggle();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React App</h1>
+      {value && <div>this is div</div> }
+      <button onClick = {toggle}>toggle</button>
     </div>
   );
 }
